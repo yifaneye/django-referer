@@ -17,6 +17,7 @@ class RefererMiddleware(MiddlewareMixin):
             or f'{settings.REFERER_LINK_PARAMETER}='
             not in request.META.get('HTTP_REFERER')
             or request.GET.get(settings.REFERER_LINK_PARAMETER, '')
+            or f'{settings.REFERER_LINK_PARAMETER}=' in request.META.get('QUERY_STRING')
         ):
             return
         refererID = request.META.get('HTTP_REFERER').split('=')[-1]
