@@ -7,7 +7,7 @@ README = (CWD / "README.rst").read_text()
 
 setup(
     name='django-referer',
-    version='0.0.1',
+    version='0.0.2',
     description='Keep HTTP referer information on query parameter and display referer information',
     packages=["referer", "referer/middleware"],
     include_package_data=True,
