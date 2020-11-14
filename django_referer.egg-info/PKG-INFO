@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-referer
-Version: 0.0.2
+Version: 0.0.3
 Summary: Keep HTTP referer information on query parameter and display referer information
 Home-page: https://github.com/yifaneye/django-referer
 Author: Yifan Ai

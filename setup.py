@@ -7,11 +7,11 @@ README = (CWD / "README.rst").read_text()
 
 setup(
     name='django-referer',
-    version='0.0.2',
+    version='0.0.3',
     description='Keep HTTP referer information on query parameter and display referer information',
     packages=["referer", "referer/middleware"],
     include_package_data=True,
-    install_requires=["Django"],
+    install_requires=["Django", "furl"],
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
