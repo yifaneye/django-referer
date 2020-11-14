@@ -1,3 +1,5 @@
+from furl import furl
+
 from .. import settings
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -20,7 +22,7 @@ class RefererMiddleware(MiddlewareMixin):
             or f'{settings.REFERER_LINK_PARAMETER}=' in request.META.get('QUERY_STRING')
         ):
             return
-        refererID = request.META.get('HTTP_REFERER').split('=')[-1]
+        refererID = furl(request.META.get('HTTP_REFERER')).args[settings.REFERER_LINK_PARAMETER]
         queryConnection = '&' if request.META.get('QUERY_STRING') else ''
         queryString = f"{request.META.get('QUERY_STRING')}{queryConnection}{settings.REFERER_LINK_PARAMETER}={refererID}"
         return HttpResponseRedirect(f"{request.META.get('PATH_INFO')}?{queryString}")
