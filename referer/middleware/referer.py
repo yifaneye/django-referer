@@ -15,6 +15,7 @@ class RefererMiddleware(MiddlewareMixin):
                 path in request.META.get('PATH_INFO')
                 for path in settings.REFERER_IGNORED_LINKS
             )
+            or request.method != 'GET'
             or not request.META.get('HTTP_REFERER')
             or f'{settings.REFERER_LINK_PARAMETER}='
             not in request.META.get('HTTP_REFERER')
