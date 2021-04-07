@@ -1,10 +1,25 @@
 # django-referer
 
-django-referer is a Django app for displaying different referer details based on query parameter.
-It provides sales, partners and affiliates custom links to send out to the public.
+**django-referer** is a Django app for **displaying different referer details based on a customizable query parameter** and **keeping this query parameter while user navigates in the site**. \
+It provides sales, partners and affiliates custom links to send out in order to get private traffic.
 It gives sales, partners and affiliates their opportunity to convert every contact detail on the website to their own.
 It thus encourages sales, partners and affiliates to promote the website and the business.
-Also, with the help of analytics scripts, there will be information about which sales gets most clicks.
+In addition, with the help of analytics scripts, traffic data can be easily distinguished and analyzed.
+
+## Demo
+
+1. URL with referer parameter
+e.g. [https://zhujia.com.au/?refer=14](https://zhujia.com.au/?refer=14)
+
+![django-referer Demo - Link with referer](https://yifanai.s3-ap-southeast-2.amazonaws.com/dr/dr14p.jpg)
+(The chosen query parameter is kept by django-referer's middleware while user navigates between links)
+![django-referer Demo 2 - Link with referer](https://yifanai.s3-ap-southeast-2.amazonaws.com/dr/dr14a.jpg)
+
+2. URL without referer parameter (falls back to the default referer)
+e.g. [https://zhujia.com.au](https://zhujia.com.au)
+
+![django-referer Demo - Link without referer](https://yifanai.s3-ap-southeast-2.amazonaws.com/dr/drp.jpg)
+![django-referer Demo 2 - Link without referer](https://yifanai.s3-ap-southeast-2.amazonaws.com/dr/dra.jpg)
 
 ## Installation
 
@@ -24,7 +39,7 @@ MIDDLEWARE = [
 ]
 ```
 
-### Step 2. Add referer context processors (in settings.py file)
+### Step 2. Add referer context processor (in settings.py file)
 ```python
 TEMPLATES = [
     {
@@ -44,11 +59,11 @@ The defaults are:
 ```python
 REFERER_LINK_PARAMETER = 'referer'
 REFERER_DEFAULT_ID = 1
-# ?referer=1
+# -> ?referer=1
 
 REFERER_MODEL_FROM = 'django.contrib.auth.models'
 REFERER_MODEL_IMPORT = 'User'
-# from REFERER_MODEL_FROM import REFERER_MODEL_IMPORT
+# -> from REFERER_MODEL_FROM import REFERER_MODEL_IMPORT
 
 REFERER_IGNORED_LINKS = []
 ```
@@ -60,7 +75,7 @@ REFERER_IGNORED_LINKS = []
 ```
 
 ## Contributing
-Pull requests are welcome.
+Issues and pull requests are welcomed.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/) © [Yifan Ai](https://yifanai.com)
