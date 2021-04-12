@@ -7,10 +7,10 @@ verify_ssl = true
 twine = "*"
 pathlib = "*"
 m2r = "*"
+check-manifest = "*"
 
 [packages]
 django = "*"
-m2r = "*"
 
 [requires]
 python_version = "3.8"
